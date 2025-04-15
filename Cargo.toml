@@ -1,0 +1,12 @@
+[package]
+name = "verus-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+vstd = { path = "/verus/source/vstd" }
+builtin = { path = "/verus/source/builtin" }
+builtin_macros = { path = "/verus/source/builtin_macros" }
+
+[package.metadata.verus]
+verify = true
