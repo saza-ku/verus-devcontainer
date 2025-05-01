@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Run make ci-build in dev container
+
+      - name: Build and verify the example project
         uses: devcontainers/ci@v0.3
         with:
           push: never
