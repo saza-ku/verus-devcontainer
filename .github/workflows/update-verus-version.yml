@@ -15,12 +15,12 @@ jobs:
       - name: Get latest Verus release
         id: verus
         run: |
-          latest=$(curl -s https://api.github.com/repos/verus-lang/verus/releases/latest | jq -r .tag_name)
+          latest=$(curl -s https://api.github.com/repos/verus-lang/verus/releases/latest | jq -r .tag_name | sed 's|release/||')
           echo "latest=$latest" >> $GITHUB_OUTPUT
 
       - name: Update Dockerfile VERUS_VERSION
         run: |
-          sed -i "s/^\(ARG VERUS_VERSION=\).*/\1${{ steps.verus.outputs.latest }}/" .devcontainer/Dockerfile
+          sed -i "s|^ARG VERUS_VERSION=.*|ARG VERUS_VERSION=${{ steps.verus.outputs.latest }}|" .devcontainer/Dockerfile
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
