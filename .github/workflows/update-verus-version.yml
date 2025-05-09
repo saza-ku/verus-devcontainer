@@ -28,6 +28,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update VERUS_VERSION to ${{ steps.verus.outputs.latest }}"
           branch: "update/verus-version-${{ steps.verus.outputs.latest }}"
           title: "Update VERUS_VERSION to ${{ steps.verus.outputs.latest }}"
