@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
-ARG VERUS_VERSION=0.2025.07.05.8bd7c32
+ARG VERUS_VERSION=0.2025.07.17.c3a5054
 
 USER vscode
 SHELL ["/bin/bash", "-c"]
